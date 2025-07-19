@@ -1,4 +1,4 @@
-package com.raven.problem;
+package com.raven.smart_house.problem;
 
 public class WithoutStateMain {
     public static void main(String[] args) {
