@@ -3,6 +3,7 @@ package com.raven.workflow_approval;
 public interface IWorkflowState {
     String getStatus();
 
+    // various state of workflow approval system
     void submit(WorkflowItem item, String user);
 
     void approve(WorkflowItem item, String user);
