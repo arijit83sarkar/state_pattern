@@ -1,4 +1,4 @@
-package com.raven.problem;
+package com.raven.smart_house.problem;
 
 // Problematic approach (AVOID THIS FOR COMPLEX STATE LOGIC)
 public class SmartLivingRoomProblematic {
