@@ -22,19 +22,20 @@ public class DraftState implements IWorkflowState {
 
     @Override
     public void reject(WorkflowItem item, String user, String reason) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'reject'");
+        System.out.println(item.getName() + ": cannot request for Reject for a draft.");
+        item.logAudit("Attempted to approve from Reject by " + user + " (Failed)");
     }
 
     @Override
     public void requestRevision(WorkflowItem item, String user, String feedback) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'requestRevision'");
+        System.out.println(item.getName() + ": cannot request for Revision for a draft.");
+        item.logAudit("Attempted to approve from Revision by " + user + " (Failed)");
     }
 
     @Override
     public void cancel(WorkflowItem item, String user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cancel'");
+        System.out.println(item.getName() + ": Cancelling item from Draft state by " + user);
+        item.setCurrentState(new CancelledState());
+        item.logAudit("Cancelling from Draft state by " + user);
     }
 }
