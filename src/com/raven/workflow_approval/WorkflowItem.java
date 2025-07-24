@@ -3,6 +3,7 @@ package com.raven.workflow_approval;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class WorkflowItem {
     private String id;
@@ -15,14 +16,14 @@ public class WorkflowItem {
     public WorkflowItem() {
     }
 
-    public WorkflowItem(String id, String name, String description, String creator, IWorkflowState currentState,
-            List<String> auditTrail) {
-        this.id = id;
+    public WorkflowItem(String name, String description, String creator) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.description = description;
         this.creator = creator;
-        this.currentState = currentState;
-        this.auditTrail = auditTrail;
+        this.currentState = new DraftState(); // Initial state
+        this.auditTrail = new ArrayList<>();
+        logAudit("Created in Draft state by " + creator);
     }
 
     public String getId() {
